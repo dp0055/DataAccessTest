@@ -18,10 +18,9 @@ namespace DataAccessTest
         public async Task<List<OutputModel>> ReturnData(FilterModel filterModel)
         {
             try
-            {               
-
-                string filmfilename = @"C:\Project\DataAccessTest\DataAccessTest\Data\film_data.csv";
-                string carfilename = @"C:\Project\DataAccessTest\DataAccessTest\Data\cars.json";
+            {
+                string filmfilename = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).FullName, "net6.0", "Data", "film_data.csv");
+                string carfilename = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).FullName, "net6.0", "Data", "cars.json");
 
                 //Read CSV file
                 var filmDataList = await fileReader.LoadCSVData(filmfilename);
